@@ -1,0 +1,28 @@
+// Definindo as constantes de distância e velocidade
+const distanciaTotal = 100; // Distância entre as cidades em km
+const velocidadeCarro = 110; // Velocidade do carro em km/h
+const velocidadeCaminhao = 80; // Velocidade do caminhão em km/h
+
+// Calculando o tempo de encontro dos veículos
+const tempoEncontro = distanciaTotal / (velocidadeCarro + velocidadeCaminhao);
+
+// Calculando as distâncias percorridas por cada veículo até o ponto de encontro
+const distanciaCarro = velocidadeCarro * tempoEncontro;
+const distanciaCaminhao = (velocidadeCaminhao * tempoEncontro) + (0.0833 * 2); // Considerando 2 pedágios de 5 minutos cada
+
+// Calculando a distância de cada veículo até Ribeirão Preto
+const distanciaRibeiraoPretoCarro = distanciaTotal - distanciaCarro;
+const distanciaRibeiraoPretoCaminhao = distanciaCaminhao;
+
+// Verificando qual veículo está mais próximo de Ribeirão Preto
+let veiculoMaisProximo = "";
+if (distanciaRibeiraoPretoCarro < distanciaRibeiraoPretoCaminhao) {
+  veiculoMaisProximo = "o carro";
+} else {
+  veiculoMaisProximo = "o caminhão";
+}
+
+// Imprimindo o resultado
+console.log(`Quando se cruzarem na rodovia, ${veiculoMaisProximo} estará mais próximo de Ribeirão Preto.`);
+
+// O tempo de encontro dos veículos é calculado utilizando a fórmula de tempo = distância / velocidade, e as distâncias percorridas por cada veículo até o ponto de encontro são interrompidas a partir do tempo de encontro e da velocidade de cada veículo. Também é considerado o tempo gasto nos pedágios para o caminhão. Por fim, é verificado qual veículo está mais próximo de Ribeirão Preto e impresso o resultado em uma mensagem.
