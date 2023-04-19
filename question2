@@ -1,0 +1,30 @@
+// Definindo o número a ser verificado
+const numeroVerificar = 12;
+
+// Definindo as duas primeiras posições da sequência
+let fib1 = 0;
+let fib2 = 1;
+
+// Verificando se o número informado é 0 ou 1 (casos base da sequência)
+if (numeroVerificar === 0) {
+  console.log("O número 0 pertence à sequência de Fibonacci.");
+} else if (numeroVerificar === 1) {
+  console.log("O número 1 pertence à sequência de Fibonacci.");
+} else {
+  // Calculando a sequência de Fibonacci até o número informado ou até ultrapassá-lo
+  let fibAtual = fib1 + fib2;
+  while (fibAtual <= numeroVerificar) {
+    if (fibAtual === numeroVerificar) {
+      console.log(`O número ${numeroVerificar} pertence à sequência de Fibonacci.`);
+      break;
+    }
+    fib1 = fib2;
+    fib2 = fibAtual;
+    fibAtual = fib1 + fib2;
+  }
+
+  // Verificando se o número informado não pertence à sequência
+  if (fibAtual > numeroVerificar) {
+    console.log(`O número ${numeroVerificar} não pertence à sequência de Fibonacci.`);
+  }
+}
